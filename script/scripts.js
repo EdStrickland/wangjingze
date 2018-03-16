@@ -13,9 +13,10 @@ window.onload = function() {
     msg = document.getElementById("msg");
     canvas = document.getElementById("can");
 
-
-    canvas.width = img.width;
-    canvas.height = img.height;
+    img.onload = function() {
+    	canvas.width = img.width;
+	    canvas.height = img.height;
+    }
 
     gif = new GIF({
         workers: 8,
