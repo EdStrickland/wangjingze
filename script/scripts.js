@@ -53,9 +53,9 @@ window.onload = function() {
 	        	ctx.strokeText("字符测试", 50, 50);
 	        	canvases.push(temp);
 	        }
-        }
 
-        msg.innerText = "准备完毕";
+        	msg.innerText = "准备完毕";
+        }
     }
 
     gif.on('finished', function(blob) {
