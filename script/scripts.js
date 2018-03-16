@@ -31,7 +31,7 @@ window.onload = function() {
 
     function callback() {
         status++;
-        msg.innerhtml = "已下载素材：" + status; + "/52";
+        msg.innerText = "已下载素材：" + status; + "/52";
         
     }
 
@@ -43,10 +43,10 @@ window.onload = function() {
 }
 
 function start() {
-
+	console.log(status);
 	if (status == 52) {
         for (i = 0; i < 52; i++) {
-        	msg.innerhtml = "正在渲染第 " + status; + "/52 帧";
+        	msg.innerText = "正在渲染第 " + status; + "/52 帧";
             gif.addFrame(dataSet[i], { delay: 75 });
         }
         gif.render();
