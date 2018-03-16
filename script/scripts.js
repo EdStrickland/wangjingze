@@ -4,9 +4,10 @@ window.onload = function() {
 
     var img = document.getElementById("source");
     var target = document.getElementById("target");
+    var msg = document.getElementById("msg");
 
     var gif = new GIF({
-        workers: 4,
+        workers: 8,
         quality: 10,
         workerScript: '../assets/js/gif.worker.js'
     });
@@ -17,9 +18,7 @@ window.onload = function() {
 
     // gif.render();
     for (i = 52; i >= 1; i--) {
-        console.log(i);
         var src = "../assets/img/" + i + ".png";
-        console.log(src);
         var img = new Image();
         img.src = src;
         img.onload = function() {
@@ -32,14 +31,8 @@ window.onload = function() {
 
     function callback() {
         status++;
-        console.log(status);
-        if (status == 52) {
-            for (i = 0; i < 52; i++) {
-                var temp = dataSet[i];
-                gif.addFrame(temp, { delay: 100 });
-            }
-            gif.render();
-        }
+        msg.innerhtml = "已下载素材：" + status; + "/52";
+        
     }
 
 
@@ -47,6 +40,17 @@ window.onload = function() {
         console.log("render finished");
         target.src = URL.createObjectURL(blob);
     });
+}
+
+function start() {
+
+	if (status == 52) {
+        for (i = 0; i < 52; i++) {
+        	msg.innerhtml = "正在渲染第 " + status; + "/52 帧";
+            gif.addFrame(dataSet[i], { delay: 75 });
+        }
+        gif.render();
+    }
 }
 
 function convertImageToCanvas(image) {
