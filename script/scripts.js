@@ -46,11 +46,6 @@ window.onload = function() {
     			temp.height = 184;
     			var ctx = temp.getContext("2d");
 	        	ctx.drawImage(dataSet[i - 1], 0, 0);
-	        	ctx.fillStyle = "white";
-	        	ctx.font = "30px Courier New";
-	        	var text = document.getElementById("text").value;
-	        	ctx.fillText(text, 50, 50);
-	        	ctx.strokeText(text, 50, 50);
 	        	canvases.push(temp);
 	        }
 
@@ -69,6 +64,12 @@ function start(reverse) {
 	if (status == 52) {
 		if (reverse) {
 			for (i = 51; i > -1; i--) {
+    			var ctx = canvases[i].getContext("2d");
+	        	ctx.fillStyle = "white";
+	        	ctx.font = "30px Courier New";
+	        	var text = document.getElementById("text").value;
+	        	ctx.fillText(text, 50, 50);
+	        	ctx.strokeText(text, 50, 50);
 	        	msg.innerText = "正在渲染第 " + status + "/52 帧";
 	            gif.addFrame(canvases[i], { delay: 85 });
 	        }
