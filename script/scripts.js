@@ -1,22 +1,25 @@
 var dataSet = [];
 var status = 0;
-window.onload = function() {
+var img;
+var target;
+var msg;
+var canvas;
 
-    var img = document.getElementById("source");
-    var target = document.getElementById("target");
-    var msg = document.getElementById("msg");
+
+window.onload = function() {
+    img = document.getElementById("source");
+    target = document.getElementById("target");
+    msg = document.getElementById("msg");
+    canvas = document.getElementById("can");
+
 
     var gif = new GIF({
         workers: 8,
         quality: 10,
         workerScript: '../assets/js/gif.worker.js'
+
     });
 
-    console.log("render start");
-
-    // gif.addFrame(img);
-
-    // gif.render();
     for (i = 52; i >= 1; i--) {
         var src = "../assets/img/" + i + ".png";
         var img = new Image();
@@ -27,14 +30,11 @@ window.onload = function() {
         dataSet.push(img);
     }
 
-
-
     function callback() {
+        canvas.getContext("2d").drawImage(dataSet[status], 0, 0);
         status++;
-        msg.innerText = "已下载素材：" + status; + "/52";
-        
+        msg.innerText = "已下载素材：" + status + "/52";
     }
-
 
     gif.on('finished', function(blob) {
         console.log("render finished");
@@ -46,18 +46,9 @@ function start() {
 	console.log(status);
 	if (status == 52) {
         for (i = 0; i < 52; i++) {
-        	msg.innerText = "正在渲染第 " + status; + "/52 帧";
+        	msg.innerText = "正在渲染第 " + status + "/52 帧";
             gif.addFrame(dataSet[i], { delay: 75 });
         }
         gif.render();
     }
-}
-
-function convertImageToCanvas(image) {
-    var canvas = document.createElement("canvas");
-    canvas.width = image.width;
-    canvas.height = image.height;
-    canvas.getContext("2d").drawImage(image, 0, 0);
-
-    return canvas;
 }
