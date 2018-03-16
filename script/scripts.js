@@ -14,8 +14,8 @@ window.onload = function() {
     canvas = document.getElementById("can");
 
 
-	canvas.width = img.width;
-    canvas.height = img.height;
+	canvas.width = 300;
+    canvas.height = 184;
 
 
     gif = new GIF({
@@ -43,8 +43,8 @@ window.onload = function() {
         	for (i = 1; i <= 52; i++) {
         		msg.innerText = "正在加载素材：" + i + "/52";
 	        	var temp = document.createElement("canvas");
-	        	temp.width = img.width;
-    			temp.height = img.height;
+	        	temp.width = 300;
+    			temp.height = 184;
     			var ctx = temp.getContext("2d");
 	        	ctx.drawImage(dataSet[i - 1], 0, 0);
 	        	ctx.fillStyle = "white";
