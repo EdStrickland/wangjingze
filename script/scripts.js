@@ -10,14 +10,20 @@ window.onload = function() {
 		workerScript:'../assets/js/gif.worker.js'
 	});
 
+	console.log("render start");
+
 	for (i = 52; i <= 1; i --) {
+		console.log(i);
+		var src = "../assets/img/" + i + ".png";
+		console.log(src);
 		var img = new Image();
-		img.src = "../assets/img/" + i + ".png";
+		img.src = src
 		gif.addFrame(img);
 		gif.render();
 	}
 
 	gif.on('finished', function(blob) {
+		console.log("render finished");
 		target.src = URL.createObjectURL(blob);
 	});
 }
