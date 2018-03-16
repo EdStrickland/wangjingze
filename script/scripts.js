@@ -69,8 +69,8 @@ function start(reverse) {
 	        	ctx.font = "900 40px Courier New";
 				ctx.textAlign="center";
 	        	var text = document.getElementById("text").value;
-	        	ctx.fillText(text, 150, 50);
-	        	ctx.strokeText(text, 150, 50);
+	        	ctx.fillText(text, 150, 150);
+	        	ctx.strokeText(text, 150, 150);
 	        	msg.innerText = "正在渲染第 " + status + "/52 帧";
 	            gif.addFrame(canvases[i], { delay: 95 });
 	        }
@@ -84,8 +84,8 @@ function start(reverse) {
 	        	ctx.font = "900 40px Courier New";
 				ctx.textAlign="center";
 	        	var text = document.getElementById("text").value;
-	        	ctx.fillText(text, 150, 50);
-	        	ctx.strokeText(text, 150, 50);
+	        	ctx.fillText(text, 150, 150);
+	        	ctx.strokeText(text, 150, 150);
         	msg.innerText = "正在渲染第 " + status + "/52 帧";
             gif.addFrame(canvases[i], { delay: 95 });
         }
