@@ -1,11 +1,10 @@
-
 var dataSet = [];
 window.onload = function() {
 	var img = document.getElementById('source');
 	var target = document.getElementById('target');
 	setInterval(function (){
 		var temp = convertImageToCanvas(img).toDataURL("image/png");
-		if (!dataSet.indexOf(temp)) {
+		if (dataSet.indexOf(temp) == -1) {
 			dataSet.push(temp);
 		}
 	}, 20);
