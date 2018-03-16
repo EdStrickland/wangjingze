@@ -47,15 +47,16 @@ window.onload = function() {
         console.log("render finished");
         target.src = URL.createObjectURL(blob);
     });
+
+    function start() {
+		console.log(status);
+		if (status == 52) {
+	        for (i = 0; i < 52; i++) {
+	        	msg.innerText = "正在渲染第 " + status + "/52 帧";
+	            gif.addFrame(cnavases[i], { delay: 75 });
+	        }
+	        gif.render();
+	    }
+	}
 }
 
-function start() {
-	console.log(status);
-	if (status == 52) {
-        for (i = 0; i < 52; i++) {
-        	msg.innerText = "正在渲染第 " + status + "/52 帧";
-            gif.addFrame(cnavases[i], { delay: 75 });
-        }
-        gif.render();
-    }
-}
