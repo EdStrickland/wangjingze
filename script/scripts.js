@@ -12,15 +12,18 @@ window.onload = function() {
 
 	console.log("render start");
 
-	for (i = 52; i >= 1; i --) {
-		console.log(i);
-		var src = "../assets/img/" + i + ".png";
-		console.log(src);
-		var img = new Image();
-		img.src = src
-		gif.addFrame(img);
-		gif.render();
-	}
+	gif.addFrame(img);
+
+	gif.render();
+	// for (i = 52; i >= 1; i --) {
+	// 	console.log(i);
+	// 	var src = "../assets/img/" + i + ".png";
+	// 	console.log(src);
+	// 	var img = new Image();
+	// 	img.src = src
+	// 	gif.addFrame(img);
+	// 	gif.render();
+	// }
 
 	gif.on('finished', function(blob) {
 		console.log("render finished");
