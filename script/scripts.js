@@ -1,4 +1,5 @@
 var dataSet = [];
+var canvases = [];
 var status = 0;
 var img;
 var target;
@@ -12,6 +13,9 @@ window.onload = function() {
     msg = document.getElementById("msg");
     canvas = document.getElementById("can");
 
+
+    canvas.width = img.width;
+    canvas.height = img.height;
 
     var gif = new GIF({
         workers: 8,
@@ -32,6 +36,9 @@ window.onload = function() {
 
     function callback() {
         canvas.getContext("2d").drawImage(dataSet[status], 0, 0);
+        var temp = document.createElement("canvas");
+        temp.getContext("2d").drawImage(dataSet[status], 0, 0);
+        canvases.push[temp];
         status++;
         msg.innerText = "已下载素材：" + status + "/52";
     }
