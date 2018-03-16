@@ -1,7 +1,8 @@
 window.onload = function() {
 	var img = document.getElementById('source');
+	var target = document.getElementById('target');
 	setInterval(function (){
-		var temp = convertCanvasToImage(convertImageToCanvas(img));
+		target.src = convertImageToCanvas(img).toDataURL("image/png");
 		console.log(temp);
 	}, 20);
 }
@@ -15,11 +16,6 @@ function convertImageToCanvas(image) {
 	return canvas;
 }
 
-function convertCanvasToImage(canvas) {
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
-}
 
 // var gif = new GIF({
 // 	workers: 2,
