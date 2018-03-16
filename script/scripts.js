@@ -1,13 +1,22 @@
 var dataSet = [];
 window.onload = function() {
-	var img = document.getElementById('source');
-	var target = document.getElementById('target');
-	setInterval(function (){
-		var temp = convertImageToCanvas(img).toDataURL("image/png");
-		if (dataSet.indexOf(temp) == -1) {
-			dataSet.push(temp);
-		}
-	}, 20);
+
+	var img = document.getElementById("source");
+
+	var gif = new GIF({
+		workers: 2,
+		quality: 10
+	});
+
+	gif.addFrame(img);
+
+	gif.on('finished', function(blob) {
+		window.open(URL.createObjectURL(blob));
+	});
+
+
+
+	gif.render();
 }
 
 function convertImageToCanvas(image) {
@@ -20,29 +29,3 @@ function convertImageToCanvas(image) {
 }
 
 
-// var gif = new GIF({
-// 	workers: 2,
-// 	quality: 10
-// });
-// // 添加一个图片标签对象像素到当前帧
-// gif.addFrame(imageElement);
-// //或添加一个canvas对象的像素到当前帧
-// gif.addFrame(document.getElementsByTagName('canvas')[0], {
-// 	delay: 200
-// });
-// gif.addFrame(document.getElementsByTagName('canvas')[0], {
-// 	delay: 200
-// });
-// gif.addFrame(document.getElementsByTagName('canvas')[0], {
-// 	delay: 200
-// });
-// //从canvas context复制像素到当前帧
-// gif.addFrame(ctx, {
-// 	copy: true
-// });
-// //合成图片成功后
-// gif.on('finished', function(blob) {
-// 	window.open(URL.createObjectURL(blob));
-// });
-// //渲染图片
-// gif.render();
