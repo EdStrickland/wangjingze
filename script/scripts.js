@@ -12,7 +12,7 @@ window.onload = function() {
 
 	console.log("render start");
 
-	for (i = 52; i <= 1; i --) {
+	for (i = 52; i >= 1; i --) {
 		console.log(i);
 		var src = "../assets/img/" + i + ".png";
 		console.log(src);
