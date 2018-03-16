@@ -79,12 +79,13 @@ function start(reverse) {
 		}
 
         for (i = 0; i < 52; i++) {
-			var ctx = canvases[i].getContext("2d");
-        	ctx.fillStyle = "white";
-        	ctx.font = "30px Courier New";
-        	var text = document.getElementById("text").value;
-        	ctx.fillText(text, 50, 50);
-        	ctx.strokeText(text, 50, 50);
+    			var ctx = canvases[i].getContext("2d");
+	        	ctx.fillStyle = "white";
+	        	ctx.font = "900 40px Courier New";
+				ctx.textAlign="center";
+	        	var text = document.getElementById("text").value;
+	        	ctx.fillText(text, 150, 50);
+	        	ctx.strokeText(text, 150, 50);
         	msg.innerText = "正在渲染第 " + status + "/52 帧";
             gif.addFrame(canvases[i], { delay: 95 });
         }
