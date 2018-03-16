@@ -40,6 +40,7 @@ window.onload = function() {
         msg.innerText = "已下载素材：" + status + "/52";
         if (status == 52) {
         	for (i = 0; i < 52; i++) {
+        		msg.innerText = "正在加载素材：" + i + "/52";
 	        	var temp = document.createElement("canvas");
 	        	temp.getContext("2d").drawImage(dataSet[i], 0, 0);
 	        	canvases.push(temp);
