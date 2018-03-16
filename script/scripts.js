@@ -2,6 +2,7 @@ var dataSet = [];
 window.onload = function() {
 
 	var img = document.getElementById("source");
+	var target = document.getElementById("target");
 
 	var gif = new GIF({
 		workers: 2,
@@ -9,15 +10,16 @@ window.onload = function() {
 		workerScript:'../assets/js/gif.worker.js'
 	});
 
-	gif.addFrame(img);
+	for (i = 52; i <= 1; i --) {
+		var img = new Image();
+		img.src = "../assets/img/" + i + ".png";
+		gif.addFrame(img);
+		gif.render();
+	}
 
 	gif.on('finished', function(blob) {
-		window.open(URL.createObjectURL(blob));
+		target.src = URL.createObjectURL(blob);
 	});
-
-
-
-	gif.render();
 }
 
 function convertImageToCanvas(image) {
