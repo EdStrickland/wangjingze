@@ -36,7 +36,7 @@ window.onload = function() {
         if (status == 52) {
             for (i = 0; i < 52; i++) {
                 var temp = dataSet[i];
-                gif.addFrame(temp, { delay: 50 });
+                gif.addFrame(temp, { delay: 100 });
             }
             gif.render();
         }
