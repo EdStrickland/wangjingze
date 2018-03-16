@@ -1,9 +1,12 @@
 window.onload = function() {
 	var img = document.getElementById('source');
 	var target = document.getElementById('target');
+	var dataSet = [];
 	setInterval(function (){
-		target.src = convertImageToCanvas(img).toDataURL("image/png");
-		console.log(temp);
+		var temp = convertImageToCanvas(img).toDataURL("image/png");
+		if (!dataSet.findIndex(temp)) {
+			dataSet.push(temp);
+		}
 	}, 20);
 }
 
