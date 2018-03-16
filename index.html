@@ -4,12 +4,38 @@
     <title>王境泽表情包生成器</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    	canvas {
+    		width: 300px;
+    		height: 184px;
+    	}
+    	
+    	#can {
+    		position: relative;
+    	}
+
+    	#wrapper {
+    		width: 300px;
+    		height: 184px;
+    	}
+
+    	#msg {
+    		width: 300px;
+    		height: 184px;
+    		line-height: 184px;
+    		text-align: center;
+    		font-weight: bold;
+    		color: white;
+    		text-shadow: 0 0 5px #000;
+    	}
+    </style>
 <head>
 <body>
-    <img id="source" src="assets/img/9.png">
-    <canvas id="can"></canvas>
+	<div id="wrapper">
+    	<canvas id="can"></canvas>
+    	<div id="msg"></div>
+	</div>
     <img id="target" src="">
-    <p id="msg"></p>
     <button onclick="start(0)">正序渲染</button>
     <button onclick="start(0)">倒叙渲染</button>
     <script src="assets/js/gif.js"></script>

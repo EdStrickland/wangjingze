@@ -22,7 +22,6 @@ window.onload = function() {
         workers: 8,
         quality: 10,
         workerScript: '../assets/js/gif.worker.js'
-
     });
 
     for (i = 52; i >= 1; i--) {
@@ -61,12 +60,6 @@ window.onload = function() {
     gif.on('finished', function(blob) {
         console.log("render finished");
         target.src = URL.createObjectURL(blob);
-        gif = new GIF({
-	        workers: 8,
-	        quality: 10,
-	        workerScript: '../assets/js/gif.worker.js'
-
-	    });
     });
 }
 
