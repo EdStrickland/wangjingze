@@ -5,7 +5,8 @@ window.onload = function() {
 
 	var gif = new GIF({
 		workers: 2,
-		quality: 10
+		quality: 10,
+		workerScript:'../assets/js/gif.worker.js'
 	});
 
 	gif.addFrame(img);
