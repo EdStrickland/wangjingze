@@ -44,7 +44,12 @@ window.onload = function() {
 	        	var temp = document.createElement("canvas");
 	        	temp.width = img.width;
     			temp.height = img.height;
-	        	temp.getContext("2d").drawImage(dataSet[i], 0, 0);
+    			var ctx = temp.getContext("2d");
+	        	ctx.drawImage(dataSet[i], 0, 0);
+	        	ctx.fillStyle = "white";
+	        	ctx.font = "30px Courier New";
+	        	ctx.fillText("字符测试", 50, 50);
+	        	ctx.strokeText("字符测试", 50, 50);
 	        	canvases.push(temp);
 	        }
         }
