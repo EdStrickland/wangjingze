@@ -31,6 +31,7 @@ window.onload = function() {
         img.onload = function() {
         	var temp = document.createElement("canvas");
         	temp.getContext("2d").drawImage(this, 0, 0);
+        canvases.push(temp);
             callback();
         }
         dataSet.push(img);
@@ -38,7 +39,6 @@ window.onload = function() {
 
     function callback() {
         canvas.getContext("2d").drawImage(dataSet[status], 0, 0);
-        canvases.push(temp);
         status++;
         msg.innerText = "已下载素材：" + status + "/52";
     }
