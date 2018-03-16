@@ -23,7 +23,7 @@ window.onload = function() {
         var img = new Image();
         img.src = src;
         img.onload = function() {
-        	callback();
+            callback();
         }
         dataSet.push(img);
     }
@@ -35,12 +35,12 @@ window.onload = function() {
         console.log(status);
         if (status == 52) {
             for (i = 0; i < 52; i--) {
-                gif.addFrame(dataSet[i], {delay: 50});
+                var temp = dataSet[i];
+                gif.addFrame(temp, { delay: 50 });
             }
             gif.render();
         }
     }
-
 
 
     gif.on('finished', function(blob) {
