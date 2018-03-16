@@ -48,8 +48,9 @@ window.onload = function() {
 	        	ctx.drawImage(dataSet[i - 1], 0, 0);
 	        	ctx.fillStyle = "white";
 	        	ctx.font = "30px Courier New";
-	        	ctx.fillText("字符测试", 50, 50);
-	        	ctx.strokeText("字符测试", 50, 50);
+	        	var text = document.getElementById("text").value;
+	        	ctx.fillText(text, 50, 50);
+	        	ctx.strokeText(text, 50, 50);
 	        	canvases.push(temp);
 	        }
 
