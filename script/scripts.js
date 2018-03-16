@@ -4,7 +4,7 @@ window.onload = function() {
 	var dataSet = [];
 	setInterval(function (){
 		var temp = convertImageToCanvas(img).toDataURL("image/png");
-		if (!dataSet.findIndex(temp)) {
+		if (!dataSet.indexOf(temp)) {
 			dataSet.push(temp);
 		}
 	}, 20);
