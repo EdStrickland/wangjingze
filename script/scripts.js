@@ -13,10 +13,10 @@ window.onload = function() {
     msg = document.getElementById("msg");
     canvas = document.getElementById("can");
 
-    img.onload = function() {
-    	canvas.width = img.width;
-	    canvas.height = img.height;
-    }
+
+	canvas.width = img.width;
+    canvas.height = img.height;
+
 
     gif = new GIF({
         workers: 8,
@@ -46,7 +46,7 @@ window.onload = function() {
 	        	temp.width = img.width;
     			temp.height = img.height;
     			var ctx = temp.getContext("2d");
-	        	ctx.drawImage(dataSet[i], 0, 0);
+	        	ctx.drawImage(dataSet[i - 1], 0, 0);
 	        	ctx.fillStyle = "white";
 	        	ctx.font = "30px Courier New";
 	        	ctx.fillText("字符测试", 50, 50);
