@@ -78,7 +78,7 @@ function start (reverse) {
 		if (reverse) {
 			for (i = 51; i > -1; i--) {
                 var text = document.getElementById("text").value;
-                render(canvases[i], text keyFrames[i]);
+                render(canvases[i], text, keyFrames[i]);
                 msg.innerText = "正在渲染第 " + status + "/52 帧";
                 gif.addFrame(canvases[i], { delay: 95 });
 	        }
