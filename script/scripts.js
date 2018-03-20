@@ -48,8 +48,11 @@ window.onload = function() {
     			var ctx = temp.getContext("2d");
 	        	ctx.drawImage(dataSet[i - 1], 0, 0);
 	        	canvases.push(temp);
-                keyFrames.push(1);
+                keyFrames.push(0);
 	        }
+            setKeyFrame(10);
+            setKeyFrame(20);
+            setKeyFrame(30);
 
         	msg.innerText = "准备完毕";
         }
@@ -66,16 +69,23 @@ function render (canvas, text, isKeyFrame) {
         return;
     var ctx = canvases[i].getContext("2d");
     ctx.fillStyle = "white";
-    ctx.font = "900 40px Courier New";
+    ctx.font = "900 35px Courier New";
     ctx.textAlign="center";
-    ctx.fillText(text, 150, 150);
-    ctx.strokeText(text, 150, 150);
+    ctx.fillText(text, 150, 180);
+    ctx.strokeText(text, 150, 180);
+}
+
+function setKeyFrame(keyFrame) {
+    for (i = keyFrame; i < keyFrame + 5; i ++) {
+        keyFrames[i] = 1;
+    }
 }
 
 function start (reverse) {
 	console.log(status);
 	if (status == 52) {
 		if (reverse) {
+            keyFrames.reverse();
 			for (i = 51; i > -1; i--) {
                 var text = document.getElementById("text").value;
                 render(canvases[i], text, keyFrames[i]);
@@ -87,16 +97,12 @@ function start (reverse) {
 		}
 
         for (i = 0; i < 52; i++) {
-			var ctx = canvases[i].getContext("2d");
-        	ctx.fillStyle = "white";
-        	ctx.font = "900 40px Courier New";
-			ctx.textAlign="center";
-        	var text = document.getElementById("text").value;
-        	ctx.fillText(text, 150, 150);
-        	ctx.strokeText(text, 150, 150);
+            var text = document.getElementById("text").value;
+            render(canvases[i], text, keyFrames[i]);
         	msg.innerText = "正在渲染第 " + status + "/52 帧";
             gif.addFrame(canvases[i], { delay: 95 });
         }
+        msg.innerText = "渲染成功";
         gif.render();
     }
 }
