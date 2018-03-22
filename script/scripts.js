@@ -106,10 +106,9 @@ function start (reverse) {
 		}
 
         for (i = 0; i < 52; i++) {
-            var text = document.getElementById("text").value;
-            render(canvases[i], keyFrames[i]);
+                render(canvases[i], keyFrames[i]);
         	msg.innerText = "正在渲染第 " + status + "/52 帧";
-            gif.addFrame(canvases[i], { delay: 95 });
+            gif.addFrame(canvases[i], { delay: 200 });
         }
         msg.innerText = "渲染成功";
         gif.render();
