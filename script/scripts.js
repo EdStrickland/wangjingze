@@ -81,16 +81,16 @@ function setKeyFrame(keyFrame) {
 function start (reverse) {
 	console.log(status);
 
-    var t1 = document.getElementById("t1");
-    var t2 = document.getElementById("t2");
-    var t3 = document.getElementById("t3");
-    var t4 = document.getElementById("t4");
+    var t1 = parseInt(document.getElementById("t1").value);
+    var t2 = parseInt(document.getElementById("t2").value);
+    var t3 = parseInt(document.getElementById("t3").value);
+    var t4 = parseInt(document.getElementById("t4").value);
 
     setKeyFrame(t1);
     setKeyFrame(t2);
     setKeyFrame(t3);
     setKeyFrame(t4);
-    
+
 	if (status == 52) {
 		if (reverse) {
             keyFrames.reverse();
