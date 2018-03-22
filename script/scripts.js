@@ -85,7 +85,6 @@ function start (reverse) {
     var t2 = document.getElementById("t2").value;
     var t3 = document.getElementById("t3").value;
     var t4 = document.getElementById("t4").value;
-    var t5 = document.getElementById("t5").value;
 
     setKeyFrame(0, t1);
     setKeyFrame(15, t2);
