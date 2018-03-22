@@ -73,7 +73,7 @@ function render (canvas, keyFrameValue) {
 }
 
 function setKeyFrame(keyFrame, text) {
-    for (i = keyFrame; i < keyFrame + 8; i ++) {
+    for (i = keyFrame; i < keyFrame + 10; i ++) {
         keyFrames[i] = text;
     }
 }
@@ -89,8 +89,8 @@ function start (reverse) {
 
     setKeyFrame(0, t1);
     setKeyFrame(15, t2);
-    setKeyFrame(21, t3);
-    setKeyFrame(29, t4);
+    setKeyFrame(25, t3);
+    // setKeyFrame(29, t4);
     setKeyFrame(39, t5);
 
 	if (status == 52) {
