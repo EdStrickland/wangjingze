@@ -87,11 +87,11 @@ function start (reverse) {
     var t4 = document.getElementById("t4").value;
     var t5 = document.getElementById("t5").value;
 
-    setKeyFrame(5, t1);
-    setKeyFrame(15, t2);
-    setKeyFrame(23, t3);
-    setKeyFrame(31, t4);
-    setKeyFrame(45, t5);
+    setKeyFrame(0, t1);
+    setKeyFrame(10, t2);
+    setKeyFrame(18, t3);
+    setKeyFrame(26, t4);
+    setKeyFrame(40, t5);
 
 	if (status == 52) {
 		if (reverse) {
