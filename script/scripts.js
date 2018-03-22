@@ -90,7 +90,7 @@ function start (reverse) {
     setKeyFrame(15, t2);
     setKeyFrame(25, t3);
     // setKeyFrame(29, t4);
-    setKeyFrame(39, t5);
+    setKeyFrame(39, t4);
 
 	if (status == 52) {
 		if (reverse) {
