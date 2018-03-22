@@ -81,11 +81,11 @@ function setKeyFrame(keyFrame, text) {
 function start (reverse) {
 	console.log(status);
 
-    var t1 = parseInt(document.getElementById("t1").value);
-    var t2 = parseInt(document.getElementById("t2").value);
-    var t3 = parseInt(document.getElementById("t3").value);
-    var t4 = parseInt(document.getElementById("t4").value);
-    var text = document.getElementById("text").value;
+    var t1 = document.getElementById("t1").value;
+    var t2 = document.getElementById("t2").value;
+    var t3 = document.getElementById("t3").value;
+    var t4 = document.getElementById("t4").value;
+    var t5 = document.getElementById("t5").value;
 
     setKeyFrame(5, text);
     setKeyFrame(15, text);
