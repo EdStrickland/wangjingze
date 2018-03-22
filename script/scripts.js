@@ -50,9 +50,6 @@ window.onload = function() {
 	        	canvases.push(temp);
                 keyFrames.push(0);
 	        }
-            setKeyFrame(10);
-            setKeyFrame(20);
-            setKeyFrame(30);
 
         	msg.innerText = "准备完毕";
         }
@@ -69,20 +66,31 @@ function render (canvas, text, isKeyFrame) {
         return;
     var ctx = canvases[i].getContext("2d");
     ctx.fillStyle = "white";
-    ctx.font = "900 35px Courier New";
+    ctx.font = "900 25px Courier New";
     ctx.textAlign="center";
-    ctx.fillText(text, 150, 180);
-    ctx.strokeText(text, 150, 180);
+    ctx.fillText(text, 150, 165);
+    ctx.strokeText(text, 150, 165);
 }
 
 function setKeyFrame(keyFrame) {
-    for (i = keyFrame; i < keyFrame + 5; i ++) {
+    for (i = keyFrame; i < keyFrame + 10; i ++) {
         keyFrames[i] = 1;
     }
 }
 
 function start (reverse) {
 	console.log(status);
+
+    var t1 = document.getElementById("t1");
+    var t2 = document.getElementById("t2");
+    var t3 = document.getElementById("t3");
+    var t4 = document.getElementById("t4");
+
+    setKeyFrame(t1);
+    setKeyFrame(t2);
+    setKeyFrame(t3);
+    setKeyFrame(t4);
+    
 	if (status == 52) {
 		if (reverse) {
             keyFrames.reverse();
