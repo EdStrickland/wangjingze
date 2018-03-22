@@ -61,20 +61,20 @@ window.onload = function() {
     });
 }
 
-function render (canvas, text, isKeyFrame) {
-    if (!isKeyFrame)
+function render (canvas, keyFrameValue) {
+    if (!keyFrameValue)
         return;
     var ctx = canvases[i].getContext("2d");
     ctx.fillStyle = "white";
     ctx.font = "900 25px Courier New";
     ctx.textAlign="center";
-    ctx.fillText(text, 150, 165);
-    ctx.strokeText(text, 150, 165);
+    ctx.fillText(keyFrameValue, 150, 165);
+    ctx.strokeText(keyFrameValue, 150, 165);
 }
 
-function setKeyFrame(keyFrame) {
-    for (i = keyFrame; i < keyFrame + 10; i ++) {
-        keyFrames[i] = 1;
+function setKeyFrame(keyFrame, text) {
+    for (i = keyFrame; i < keyFrame + 8; i ++) {
+        keyFrames[i] = text;
     }
 }
 
@@ -85,20 +85,21 @@ function start (reverse) {
     var t2 = parseInt(document.getElementById("t2").value);
     var t3 = parseInt(document.getElementById("t3").value);
     var t4 = parseInt(document.getElementById("t4").value);
+    var text = document.getElementById("text").value;
 
-    setKeyFrame(t1);
-    setKeyFrame(t2);
-    setKeyFrame(t3);
-    setKeyFrame(t4);
+    setKeyFrame(5, text);
+    setKeyFrame(15, text);
+    setKeyFrame(23, text);
+    setKeyFrame(31, text);
+    setKeyFrame(45, text);
 
 	if (status == 52) {
 		if (reverse) {
             keyFrames.reverse();
 			for (i = 51; i > -1; i--) {
-                var text = document.getElementById("text").value;
-                render(canvases[i], text, keyFrames[i]);
+                render(canvases[i], keyFrames[i]);
                 msg.innerText = "正在渲染第 " + status + "/52 帧";
-                gif.addFrame(canvases[i], { delay: 95 });
+                gif.addFrame(canvases[i], { delay: 200 });
 	        }
 	        gif.render();
 	        return;
@@ -106,7 +107,7 @@ function start (reverse) {
 
         for (i = 0; i < 52; i++) {
             var text = document.getElementById("text").value;
-            render(canvases[i], text, keyFrames[i]);
+            render(canvases[i], keyFrames[i]);
         	msg.innerText = "正在渲染第 " + status + "/52 帧";
             gif.addFrame(canvases[i], { delay: 95 });
         }
