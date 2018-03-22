@@ -58,6 +58,11 @@ window.onload = function() {
     gif.on('finished', function(blob) {
         console.log("render finished");
         target.src = URL.createObjectURL(blob);
+        gif = new GIF({
+            workers: 8,
+            quality: 10,
+            workerScript: '../assets/js/gif.worker.js'
+        });
     });
 }
 
@@ -66,7 +71,7 @@ function render (canvas, keyFrameValue) {
         return;
     var ctx = canvases[i].getContext("2d");
     ctx.fillStyle = "white";
-    ctx.font = "900 25px Courier New";
+    ctx.font = "900 18px Courier New";
     ctx.textAlign="center";
     ctx.fillText(keyFrameValue, 150, 165);
     ctx.strokeText(keyFrameValue, 150, 165);
