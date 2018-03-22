@@ -91,7 +91,7 @@ function start (reverse) {
     setKeyFrame(15, t2);
     setKeyFrame(21, t3);
     setKeyFrame(29, t4);
-    setKeyFrame(40, t5);
+    setKeyFrame(39, t5);
 
 	if (status == 52) {
 		if (reverse) {
@@ -99,7 +99,7 @@ function start (reverse) {
 			for (i = 51; i > -1; i--) {
                 render(canvases[i], keyFrames[i]);
                 msg.innerText = "正在渲染第 " + status + "/52 帧";
-                gif.addFrame(canvases[i], { delay: 200 });
+                gif.addFrame(canvases[i], { delay: 95 });
 	        }
 	        gif.render();
 	        return;
@@ -108,7 +108,7 @@ function start (reverse) {
         for (i = 0; i < 52; i++) {
                 render(canvases[i], keyFrames[i]);
         	msg.innerText = "正在渲染第 " + status + "/52 帧";
-            gif.addFrame(canvases[i], { delay: 200 });
+            gif.addFrame(canvases[i], { delay: 95 });
         }
         msg.innerText = "渲染成功";
         gif.render();
